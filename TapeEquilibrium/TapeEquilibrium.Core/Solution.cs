@@ -5,22 +5,23 @@
 
     public class Solution
     {
-        public int GetTapeEquilibrium(int[] a)
-        {
+        public int GetTapeEquilibrium(int[] A)
+        {            
             int minimalDiff = -1;
             var left = 0;
-            var sum = a.Sum();
-            foreach (int t in a)
-            {
-                left += t;
-                var right = sum - left;                
-                var diff = Math.Abs(left - right);                
+            var sum = A.Sum();
+            for (int i = 0; i < A.Length - 1; i++)
+            {                
+                left += A[i];
+                var right = sum - left;
+                var diff = Math.Abs(left - right);
                 if (diff < minimalDiff || minimalDiff == -1)
                 {
                     minimalDiff = diff;
                 }
             }
             return minimalDiff;
+
         }
     }
 }

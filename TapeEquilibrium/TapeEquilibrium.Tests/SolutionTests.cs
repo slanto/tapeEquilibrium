@@ -11,6 +11,7 @@
         [InlineData(new int[] { 3, 1, 2, 1, 3, 5 }, 1)]
         [InlineData(new int[] { 5, 1, 3 }, 1)]
         [InlineData(new int[] { 5, 1 }, 4)]
+        [InlineData(new int[] { -1000, 1000 }, 2000)]
         public void GetTapeEquilibrium_ReturnsMinimalDifferenceForGivenArray(int[] array, int expected)
         {
             var sut = new Solution();
