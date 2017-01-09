@@ -1,23 +1,20 @@
 ﻿namespace TapeEquilibrium.Core
 {
     using System;
+    using System.Linq;
 
     public class Solution
     {
         public int GetTapeEquilibrium(int[] a)
         {
             int minimalDiff = -1;
-            var right = 0;
             var left = 0;
-            for (int i = 0; i < a.Length; i++)
+            var sum = a.Sum();
+            foreach (int t in a)
             {
-                left += a[i];
-                for (int j = i + 1; j < a.Length; j++)
-                {
-                    right += a[j];
-                }
-                var diff = Math.Abs(left - right);
-                right = 0;
+                left += t;
+                var right = sum - left;                
+                var diff = Math.Abs(left - right);                
                 if (diff < minimalDiff || minimalDiff == -1)
                 {
                     minimalDiff = diff;
